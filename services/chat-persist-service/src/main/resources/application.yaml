@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: chat-persist-service
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: chat-persist-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: org.s3m.chatservice.chat.ChatMessage
